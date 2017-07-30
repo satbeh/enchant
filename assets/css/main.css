@@ -1,0 +1,12 @@
+#holder{
+	padding: 0;
+	width: 1000px;
+	height: 100%;
+	background-color: #eee;
+	margin: auto;
+	top:10%;
+}
+
+#hiddencontent{
+	display: none;		
+}

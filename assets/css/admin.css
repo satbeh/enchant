@@ -1,0 +1,61 @@
+/* Overridden Classes from Bootstrap */
+
+body{
+	font-weight: 200;
+	color: #626262;
+	font-size:12px;
+}
+
+h1,h2,h3,h4,h5,h6{
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.btn{
+	letter-spacing: 2px;
+}
+
+.panel-body {
+	padding-top: 0;
+}
+		
+/* Custom Classes */
+header .title, header:before, footer:before{
+	background-color: #F5F5F5;
+	border: 1px solid #DDDDDD;
+	position: fixed;
+	color: #000000;
+	font-size: 16px;
+}
+
+header:before {	
+	content: "";
+	width: 100%;
+	height: 5px;	
+	top: -1px;
+}
+
+header .title {	
+	border-radius: 0 0 4px 4px;		
+	padding: 10px;
+	top: -1px;
+}
+
+footer:before{	
+	bottom: -1px;
+	content: "";
+	width: 100%;
+	height: 5px;
+}
+
+section .container{
+	margin-top:30px;
+}
+
+section .container nav{
+	position: fixed;		
+}
+
+section .container nav ul li{
+	margin-bottom:30px;
+}
