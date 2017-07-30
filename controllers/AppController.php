@@ -136,7 +136,7 @@ class AppController extends Controller {
 		$url.='&count=true&state=closed';
 		$url.='&fields=id,label_ids,updated_at';
 
-		echo $url;
+		//echo $url;
 		$res = $this->simple_curl($url);
 
 		foreach ($res['content'] as $value){
