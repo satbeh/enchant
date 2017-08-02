@@ -190,10 +190,10 @@ class AppController extends Controller {
 		$data = array(
 			"state"=>"open"
 		);
-		//echo $url;
-		//echo "\n";
+		echo $url;
+		echo "\n";
 		
-		$res = $this->simple_curl($url, 'PATCH', json_encode($data));
+		//$res = $this->simple_curl($url, 'PATCH', json_encode($data));
 	}
 
 	function get_last_updated($type){
@@ -217,7 +217,7 @@ class AppController extends Controller {
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_HEADER => true,
 			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_TIMEOUT => 3,
+			CURLOPT_TIMEOUT => 500,
 		);
 		$default_headers = array('Content-Type: application/json');
 
