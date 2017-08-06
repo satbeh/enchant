@@ -13,6 +13,7 @@ class AppController extends Controller {
 	public $since_updated_at = "";
 	public $new_updated_at = "";
 	public $tickets = array();
+	public $labels = "";
 
 	public function __construct() {
 		parent::__construct();
@@ -127,12 +128,16 @@ class AppController extends Controller {
 
 	public function updateMails($type){
 		//$this->get_last_updated($type);
+		$labels = $this->get_labels($type);
+		if(strlen($labels) == 0)
+			return;
 
 		$url = API_URL.'tickets';
 		$url.='?per_page='.$this->per_page;
 		$url.='&page='.$this->curr_page;
 		//$url.='&since_updated_at='.$this->since_updated_at;
 		$url.='&group_id='.$this->group[$type];
+		$url.='&label_id='.$this->get_labels($type);
 		$url.='&count=true&state=closed';
 		$url.='&fields=id,label_ids,updated_at';
 
@@ -150,12 +155,24 @@ class AppController extends Controller {
 		}else{
 			$this->curr_page = 1;
 			//echo count($this->tickets);
+			echo "Reopened Ticket URLS - \n";
 			foreach ($this->tickets as $ticket){
 				$this->validate_and_reopen($type, $ticket);
 			}
 
 			//$this->set_last_updated($type);
 		}
+	}
+
+	function get_labels($type){
+		if(strlen($this->labels) == 0){
+			$filename = dirname(__FILE__) . "/../data/labels_".$type.".txt";
+			$file = fopen($filename, "r");
+			$reopen = json_decode(fread($file, filesize($filename)));
+			$this->labels = implode(",", array_keys(get_object_vars($reopen)));
+			fclose($file);
+		}
+		return $this->labels;
 	}
 
 	function validate_and_reopen($type, $ticket){
@@ -178,6 +195,7 @@ class AppController extends Controller {
 				echo "--";
 				echo $status_duration;
 				echo "\n";*/
+
 				if($status_duration >= $duration){
 					$this->reopen_ticket($type, $ticket->id);
 				}
@@ -190,8 +208,8 @@ class AppController extends Controller {
 		$data = array(
 			"state"=>"open"
 		);
-		//echo $url;
-		//echo "\n";
+		echo $url;
+		echo "\n";
 		
 		$res = $this->simple_curl($url, 'PATCH', json_encode($data));
 	}
