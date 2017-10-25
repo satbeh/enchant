@@ -206,7 +206,7 @@ class AppController extends Controller {
 	function reopen_ticket($type, $ticket_id){
 		$url = API_URL.'tickets/'.$ticket_id;
 		$data = array(
-			"state"=>"open"
+			"state"=>"hold"
 		);
 		echo $url;
 		echo "\n";
