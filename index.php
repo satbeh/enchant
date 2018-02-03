@@ -48,18 +48,18 @@
 		$_REQUEST['selectednav'] = "list_ws";
 		$controller->deleteLabel('ws');
 
-	}elseif($_REQUEST['action'] == 'list_bec'){
-		$_REQUEST['selectednav'] = "list_bec";
-		$controller->listLabels('bec');
-	}elseif($_REQUEST['action'] == 'add_bec'){
-		$_REQUEST['selectednav'] = "list_bec";
-		$controller->editLabel('bec');
-	}elseif($_REQUEST['action'] == 'edit_bec'){
-		$_REQUEST['selectednav'] = "list_bec";
-		$controller->editLabel('bec');
-	}elseif($_REQUEST['action'] == 'delete_bec'){
-		$_REQUEST['selectednav'] = "list_bec";
-		$controller->deleteLabel('bec');
+	}elseif($_REQUEST['action'] == 'list_collab'){
+		$_REQUEST['selectednav'] = "list_collab";
+		$controller->listLabels('collab');
+	}elseif($_REQUEST['action'] == 'add_collab'){
+		$_REQUEST['selectednav'] = "list_collab";
+		$controller->editLabel('collab');
+	}elseif($_REQUEST['action'] == 'edit_collab'){
+		$_REQUEST['selectednav'] = "list_collab";
+		$controller->editLabel('collab');
+	}elseif($_REQUEST['action'] == 'delete_collab'){
+		$_REQUEST['selectednav'] = "list_collab";
+		$controller->deleteLabel('collab');
 	
 	}elseif($_REQUEST['action'] == 'list_hello'){
 		$_REQUEST['selectednav'] = "list_hello";

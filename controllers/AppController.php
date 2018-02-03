@@ -5,7 +5,7 @@ class AppController extends Controller {
 	public $group = array(
 		"sales" => "58d26b56bbddbd7d027c51b0",
 		"ws" => "591c20d1bbddbd732bd9fb73",
-		"bec" => "554567d769702d2b42230000",
+		"collab" => "554567d769702d2b42230000",
 		"hello" => "5544351b69702d243bc00000"
 	);
 	public $per_page = 100;
