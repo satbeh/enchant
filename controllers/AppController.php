@@ -177,7 +177,7 @@ class AppController extends Controller {
 
 	function validate_and_reopen($type, $ticket){
 		$interval = date_diff(date_create(date('Y-m-d\TH:i:s\Z')), date_create($ticket->updated_at));
-		$status_duration = $interval->format("%d");
+		$status_duration = $interval->format("%a");
 		$filename = dirname(__FILE__) . "/../data/labels_".$type.".txt";
 		$file = fopen($filename, "r");
 		$reopen = json_decode(fread($file, filesize($filename)));
